@@ -9,3 +9,4 @@ Includes:
 - Plugins:
   - HtmlWebpackPlugin
   - MiniCssExtractPlugin
+  - BundleAnalyzerPlugin

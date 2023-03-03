@@ -1,6 +1,8 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
@@ -31,18 +33,19 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack',
       filename: 'index.html',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
-    new MiniCssExtractPlugin()
-  ]
+    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin(),
+  ],
 };
